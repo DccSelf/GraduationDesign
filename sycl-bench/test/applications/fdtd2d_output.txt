@@ -1,0 +1,43 @@
+==3280870== Cachegrind, a cache and branch-prediction profiler
+==3280870== Copyright (C) 2002-2017, and GNU GPL'd, by Nicholas Nethercote et al.
+==3280870== Using Valgrind-3.17.0 and LibVEX; rerun with -h for copyright info
+==3280870== Command: ./fdtd2d --size=1024 --num-runs=1
+==3280870== 
+--3280870-- Warning: Cannot auto-detect cache config, using defaults.
+--3280870--          Run with -v to see.
+********** Results for Polybench_Fdtd2d**********
+problem-size: 1024
+local-size: 256
+device-name: SYCL host device
+sycl-implementation: LLVM (Intel DPC++)
+246 171: -3097959858176.000000 -3462602686464.000000 11.770418
+throughput-metric: N/A
+kernel-time-mean: N/A
+kernel-time-stddev: N/A
+kernel-time-median: N/A
+kernel-time-min: N/A
+kernel-time-samples: N/A
+kernel-time-throughput: N/A
+run-time-mean: 14245.255825 [s]
+run-time-stddev: 0.000000 [s]
+run-time-median: 14245.255825 [s]
+run-time-min: 14245.255825 [s]
+run-time-samples: "14245.255825"
+run-time-throughput: N/A
+Verification: FAIL
+==3280870== 
+==3280870== I   refs:      787,718,648,909
+==3280870== I1  misses:          1,769,345
+==3280870== LLi misses:          1,499,456
+==3280870== I1  miss rate:            0.00%
+==3280870== LLi miss rate:            0.00%
+==3280870== 
+==3280870== D   refs:      463,304,895,432  (286,706,057,570 rd   + 176,598,837,862 wr)
+==3280870== D1  misses:      1,412,218,526  (  1,363,721,927 rd   +      48,496,599 wr)
+==3280870== LLd misses:        460,464,255  (    459,487,563 rd   +         976,692 wr)
+==3280870== D1  miss rate:             0.3% (            0.5%     +             0.0%  )
+==3280870== LLd miss rate:             0.1% (            0.2%     +             0.0%  )
+==3280870== 
+==3280870== LL refs:         1,413,987,871  (  1,365,491,272 rd   +      48,496,599 wr)
+==3280870== LL misses:         461,963,711  (    460,987,019 rd   +         976,692 wr)
+==3280870== LL miss rate:              0.0% (            0.0%     +             0.0%  )

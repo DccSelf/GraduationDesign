@@ -1,0 +1,42 @@
+==11710== Cachegrind, a cache and branch-prediction profiler
+==11710== Copyright (C) 2002-2017, and GNU GPL'd, by Nicholas Nethercote et al.
+==11710== Using Valgrind-3.17.0 and LibVEX; rerun with -h for copyright info
+==11710== Command: ./atax --size=4096 --num-runs=1
+==11710== 
+--11710-- Warning: Cannot auto-detect cache config, using defaults.
+--11710--          Run with -v to see.
+********** Results for Polybench_Atax**********
+problem-size: 4096
+local-size: 256
+device-name: SYCL host device
+sycl-implementation: LLVM (Intel DPC++)
+throughput-metric: N/A
+kernel-time-mean: N/A
+kernel-time-stddev: N/A
+kernel-time-median: N/A
+kernel-time-min: N/A
+kernel-time-samples: N/A
+kernel-time-throughput: N/A
+run-time-mean: 4.986928 [s]
+run-time-stddev: 0.000000 [s]
+run-time-median: 4.986928 [s]
+run-time-min: 4.986928 [s]
+run-time-samples: "4.986928"
+run-time-throughput: N/A
+Verification: PASS
+==11710== 
+==11710== I   refs:      469,351,428
+==11710== I1  misses:         22,882
+==11710== LLi misses:          9,522
+==11710== I1  miss rate:        0.00%
+==11710== LLi miss rate:        0.00%
+==11710== 
+==11710== D   refs:      179,967,376  (111,515,917 rd   + 68,451,459 wr)
+==11710== D1  misses:     27,100,361  ( 23,921,677 rd   +  3,178,684 wr)
+==11710== LLd misses:     22,051,059  ( 18,899,537 rd   +  3,151,522 wr)
+==11710== D1  miss rate:        15.1% (       21.5%     +        4.6%  )
+==11710== LLd miss rate:        12.3% (       16.9%     +        4.6%  )
+==11710== 
+==11710== LL refs:        27,123,243  ( 23,944,559 rd   +  3,178,684 wr)
+==11710== LL misses:      22,060,581  ( 18,909,059 rd   +  3,151,522 wr)
+==11710== LL miss rate:          3.4% (        3.3%     +        4.6%  )

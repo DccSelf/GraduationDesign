@@ -1,0 +1,1 @@
+/thfs1/home/penglin/dcc/sycl_workspace/llvm-2022-06/build/install/bin/clang++   -fsycl -O3 -DNDEBUG   CMakeFiles/dag_task_throughput_sequential.dir/runtime/dag_task_throughput_sequential.cpp.o  -o dag_task_throughput_sequential 

@@ -1,0 +1,42 @@
+==28842== Cachegrind, a cache and branch-prediction profiler
+==28842== Copyright (C) 2002-2017, and GNU GPL'd, by Nicholas Nethercote et al.
+==28842== Using Valgrind-3.17.0 and LibVEX; rerun with -h for copyright info
+==28842== Command: ./gemm --size=1024 --num-runs=1
+==28842== 
+--28842-- Warning: Cannot auto-detect cache config, using defaults.
+--28842--          Run with -v to see.
+********** Results for Polybench_Gemm**********
+problem-size: 1024
+local-size: 256
+device-name: SYCL host device
+sycl-implementation: LLVM (Intel DPC++)
+throughput-metric: N/A
+kernel-time-mean: N/A
+kernel-time-stddev: N/A
+kernel-time-median: N/A
+kernel-time-min: N/A
+kernel-time-samples: N/A
+kernel-time-throughput: N/A
+run-time-mean: 227.035791 [s]
+run-time-stddev: 0.000000 [s]
+run-time-median: 227.035791 [s]
+run-time-min: 227.035791 [s]
+run-time-samples: "227.035791"
+run-time-throughput: N/A
+Verification: PASS
+==28842== 
+==28842== I   refs:      21,025,555,249
+==28842== I1  misses:            19,124
+==28842== LLi misses:             8,500
+==28842== I1  miss rate:           0.00%
+==28842== LLi miss rate:           0.00%
+==28842== 
+==28842== D   refs:       6,784,212,290  (4,503,651,702 rd   + 2,280,560,588 wr)
+==28842== D1  misses:     2,151,620,025  (2,150,859,565 rd   +       760,460 wr)
+==28842== LLd misses:     2,151,565,604  (2,150,808,186 rd   +       757,418 wr)
+==28842== D1  miss rate:           31.7% (         47.8%     +           0.0%  )
+==28842== LLd miss rate:           31.7% (         47.8%     +           0.0%  )
+==28842== 
+==28842== LL refs:        2,151,639,149  (2,150,878,689 rd   +       760,460 wr)
+==28842== LL misses:      2,151,574,104  (2,150,816,686 rd   +       757,418 wr)
+==28842== LL miss rate:             7.7% (          8.4%     +           0.0%  )

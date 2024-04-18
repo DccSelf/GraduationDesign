@@ -1,0 +1,1 @@
+/thfs1/home/penglin/dcc/sycl_workspace/llvm-2022-06/build/install/bin/clang++   -fsycl -O3 -DNDEBUG   CMakeFiles/blocked_transform.dir/runtime/blocked_transform.cpp.o  -o blocked_transform 

@@ -1,0 +1,250 @@
+Using test profile: default
+
+
+##################################################
+Processing dag_task_throughput_independent
+##################################################
+0.0 10800.0
+__________________________________________________
+
+dag_task_throughput_independent --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=1024 --local=64
+==> Benchmark run finished in 2.6502196370856836 s
+__________________________________________________
+
+dag_task_throughput_independent --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=1024 --local=128
+==> Benchmark run finished in 2.771845864946954 s
+__________________________________________________
+
+dag_task_throughput_independent --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=1024 --local=256
+==> Benchmark run finished in 3.1975440020905808 s
+__________________________________________________
+
+dag_task_throughput_independent --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=1024 --local=512
+==> Benchmark run finished in 3.7047394659603015 s
+3.7047394659603015 10800.0
+__________________________________________________
+
+dag_task_throughput_independent --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=2048 --local=64
+==> Benchmark run finished in 5.321683406014927 s
+__________________________________________________
+
+dag_task_throughput_independent --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=2048 --local=128
+==> Benchmark run finished in 5.65513787290547 s
+__________________________________________________
+
+dag_task_throughput_independent --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=2048 --local=256
+==> Benchmark run finished in 6.296278449939564 s
+__________________________________________________
+
+dag_task_throughput_independent --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=2048 --local=512
+==> Benchmark run finished in 7.3998495559208095 s
+7.3998495559208095 10800.0
+__________________________________________________
+
+dag_task_throughput_independent --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=4096 --local=64
+==> Benchmark run finished in 11.119192579062656 s
+__________________________________________________
+
+dag_task_throughput_independent --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=4096 --local=128
+==> Benchmark run finished in 11.71238597505726 s
+__________________________________________________
+
+dag_task_throughput_independent --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=4096 --local=256
+==> Benchmark run finished in 12.735775196924806 s
+__________________________________________________
+
+dag_task_throughput_independent --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=4096 --local=512
+==> Benchmark run finished in 15.077553007984534 s
+15.077553007984534 10800.0
+__________________________________________________
+
+dag_task_throughput_independent --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=8192 --local=64
+==> Benchmark run finished in 22.475660187075846 s
+__________________________________________________
+
+dag_task_throughput_independent --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=8192 --local=128
+==> Benchmark run finished in 23.388521153945476 s
+__________________________________________________
+
+dag_task_throughput_independent --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=8192 --local=256
+==> Benchmark run finished in 26.06993719993625 s
+__________________________________________________
+
+dag_task_throughput_independent --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=8192 --local=512
+==> Benchmark run finished in 30.902474278002046 s
+30.902474278002046 10800.0
+__________________________________________________
+
+dag_task_throughput_independent --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=16384 --local=64
+==> Benchmark run finished in 47.494707231991924 s
+__________________________________________________
+
+dag_task_throughput_independent --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=16384 --local=128
+==> Benchmark run finished in 49.21504353394266 s
+__________________________________________________
+
+dag_task_throughput_independent --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=16384 --local=256
+==> Benchmark run finished in 54.73507025593426 s
+__________________________________________________
+
+dag_task_throughput_independent --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=16384 --local=512
+==> Benchmark run finished in 63.626643671886995 s
+63.626643671886995 10800.0
+__________________________________________________
+
+dag_task_throughput_independent --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=32768 --local=64
+==> Benchmark run finished in 101.47394386900123 s
+__________________________________________________
+
+dag_task_throughput_independent --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=32768 --local=128
+==> Benchmark run finished in 108.10112809808925 s
+__________________________________________________
+
+dag_task_throughput_independent --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=32768 --local=256
+==> Benchmark run finished in 117.88422605500091 s
+__________________________________________________
+
+dag_task_throughput_independent --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=32768 --local=512
+==> Benchmark run finished in 135.2523392320145 s
+135.2523392320145 10800.0
+__________________________________________________
+
+dag_task_throughput_independent --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=65536 --local=64
+==> Benchmark run finished in 233.42903420398943 s
+__________________________________________________
+
+dag_task_throughput_independent --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=65536 --local=128
+==> Benchmark run finished in 245.1773405049462 s
+__________________________________________________
+
+dag_task_throughput_independent --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=65536 --local=256
+==> Benchmark run finished in 262.9891062590759 s
+__________________________________________________
+
+dag_task_throughput_independent --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=65536 --local=512
+==> Benchmark run finished in 299.83947434602305 s
+
+
+##################################################
+Processing dag_task_throughput_sequential
+##################################################
+0.0 10800.0
+__________________________________________________
+
+dag_task_throughput_sequential --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=1024 --local=64
+==> Benchmark run finished in 0.5892756250686944 s
+__________________________________________________
+
+dag_task_throughput_sequential --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=1024 --local=128
+==> Benchmark run finished in 0.7133156200870872 s
+__________________________________________________
+
+dag_task_throughput_sequential --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=1024 --local=256
+==> Benchmark run finished in 1.0018331930041313 s
+__________________________________________________
+
+dag_task_throughput_sequential --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=1024 --local=512
+==> Benchmark run finished in 1.591644378961064 s
+1.591644378961064 10800.0
+__________________________________________________
+
+dag_task_throughput_sequential --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=2048 --local=64
+==> Benchmark run finished in 1.1168976939516142 s
+__________________________________________________
+
+dag_task_throughput_sequential --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=2048 --local=128
+==> Benchmark run finished in 1.4089807330165058 s
+__________________________________________________
+
+dag_task_throughput_sequential --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=2048 --local=256
+==> Benchmark run finished in 1.9902702050749213 s
+__________________________________________________
+
+dag_task_throughput_sequential --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=2048 --local=512
+==> Benchmark run finished in 3.1770642480114475 s
+3.1770642480114475 10800.0
+__________________________________________________
+
+dag_task_throughput_sequential --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=4096 --local=64
+==> Benchmark run finished in 2.200425633927807 s
+__________________________________________________
+
+dag_task_throughput_sequential --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=4096 --local=128
+==> Benchmark run finished in 2.8485020119696856 s
+__________________________________________________
+
+dag_task_throughput_sequential --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=4096 --local=256
+==> Benchmark run finished in 3.9644423649879172 s
+__________________________________________________
+
+dag_task_throughput_sequential --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=4096 --local=512
+==> Benchmark run finished in 6.4846747210249305 s
+6.4846747210249305 10800.0
+__________________________________________________
+
+dag_task_throughput_sequential --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=8192 --local=64
+==> Benchmark run finished in 4.449882206041366 s
+__________________________________________________
+
+dag_task_throughput_sequential --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=8192 --local=128
+==> Benchmark run finished in 5.742825495894067 s
+__________________________________________________
+
+dag_task_throughput_sequential --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=8192 --local=256
+==> Benchmark run finished in 8.075624878983945 s
+__________________________________________________
+
+dag_task_throughput_sequential --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=8192 --local=512
+==> Benchmark run finished in 12.739517637062818 s
+12.739517637062818 10800.0
+__________________________________________________
+
+dag_task_throughput_sequential --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=16384 --local=64
+==> Benchmark run finished in 8.950860235956497 s
+__________________________________________________
+
+dag_task_throughput_sequential --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=16384 --local=128
+==> Benchmark run finished in 11.420283847022802 s
+__________________________________________________
+
+dag_task_throughput_sequential --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=16384 --local=256
+==> Benchmark run finished in 16.32455276302062 s
+__________________________________________________
+
+dag_task_throughput_sequential --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=16384 --local=512
+==> Benchmark run finished in 25.643396458937787 s
+25.643396458937787 10800.0
+__________________________________________________
+
+dag_task_throughput_sequential --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=32768 --local=64
+==> Benchmark run finished in 18.10042233893182 s
+__________________________________________________
+
+dag_task_throughput_sequential --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=32768 --local=128
+==> Benchmark run finished in 22.856682377983816 s
+__________________________________________________
+
+dag_task_throughput_sequential --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=32768 --local=256
+==> Benchmark run finished in 32.84801129298285 s
+__________________________________________________
+
+dag_task_throughput_sequential --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=32768 --local=512
+==> Benchmark run finished in 50.8310149400495 s
+50.8310149400495 10800.0
+__________________________________________________
+
+dag_task_throughput_sequential --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=65536 --local=64
+==> Benchmark run finished in 36.498239930020645 s
+__________________________________________________
+
+dag_task_throughput_sequential --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=65536 --local=128
+==> Benchmark run finished in 45.74532404297497 s
+__________________________________________________
+
+dag_task_throughput_sequential --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=65536 --local=256
+==> Benchmark run finished in 64.27709664590657 s
+__________________________________________________
+
+dag_task_throughput_sequential --num-runs=10 --output=./sycl-bench-runtime-1.csv --size=65536 --local=512
+==> Benchmark run finished in 102.79434044507798 s
+All benchmarks were executed successfully

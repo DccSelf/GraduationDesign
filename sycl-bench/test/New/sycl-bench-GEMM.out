@@ -1,0 +1,62 @@
+Using test profile: default
+
+
+##################################################
+Processing gemm-nd_range
+##################################################
+0.0 10800.0
+__________________________________________________
+
+gemm-nd_range --num-runs=10 --output=./sycl-bench-GEMM.csv --size=512 --local=256
+==> Benchmark run finished in 13.065159665420651 s
+13.065159665420651 10800.0
+__________________________________________________
+
+gemm-nd_range --num-runs=10 --output=./sycl-bench-GEMM.csv --size=1024 --local=256
+==> Benchmark run finished in 505.3761916188523 s
+
+
+##################################################
+Processing gemm-single_task
+##################################################
+0.0 10800.0
+__________________________________________________
+
+gemm-single_task --num-runs=10 --output=./sycl-bench-GEMM.csv --size=512 --local=256
+==> Benchmark run finished in 11.30816741194576 s
+11.30816741194576 10800.0
+__________________________________________________
+
+gemm-single_task --num-runs=10 --output=./sycl-bench-GEMM.csv --size=1024 --local=256
+==> Benchmark run finished in 499.12416717689484 s
+
+
+##################################################
+Processing gemm
+##################################################
+0.0 10800.0
+__________________________________________________
+
+gemm --num-runs=10 --output=./sycl-bench-GEMM.csv --size=512 --local=256
+==> Benchmark run finished in 12.061227031983435 s
+12.061227031983435 10800.0
+__________________________________________________
+
+gemm --num-runs=10 --output=./sycl-bench-GEMM.csv --size=1024 --local=256
+==> Benchmark run finished in 505.0622750967741 s
+
+
+##################################################
+Processing gemm-hierarchical
+##################################################
+0.0 10800.0
+__________________________________________________
+
+gemm-hierarchical --num-runs=10 --output=./sycl-bench-GEMM.csv --size=512 --local=256
+==> Benchmark run finished in 12.177913499996066 s
+12.177913499996066 10800.0
+__________________________________________________
+
+gemm-hierarchical --num-runs=10 --output=./sycl-bench-GEMM.csv --size=1024 --local=256
+==> Benchmark run finished in 516.756975511089 s
+All benchmarks were executed successfully

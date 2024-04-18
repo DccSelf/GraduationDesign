@@ -1,0 +1,1 @@
+/thfs1/home/penglin/dcc/sycl_workspace/llvm-2022-06/build/install/bin/clang++   -fsycl -O3 -DNDEBUG   CMakeFiles/pattern_L2.dir/micro/pattern_L2.cpp.o  -o pattern_L2 

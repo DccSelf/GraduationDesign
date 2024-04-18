@@ -1,0 +1,42 @@
+==4112142== Cachegrind, a cache and branch-prediction profiler
+==4112142== Copyright (C) 2002-2017, and GNU GPL'd, by Nicholas Nethercote et al.
+==4112142== Using Valgrind-3.17.0 and LibVEX; rerun with -h for copyright info
+==4112142== Command: ./3mm --size=1024 --num-runs=1
+==4112142== 
+--4112142-- Warning: Cannot auto-detect cache config, using defaults.
+--4112142--          Run with -v to see.
+********** Results for Polybench_3mm**********
+problem-size: 1024
+local-size: 256
+device-name: SYCL host device
+sycl-implementation: LLVM (Intel DPC++)
+throughput-metric: N/A
+kernel-time-mean: N/A
+kernel-time-stddev: N/A
+kernel-time-median: N/A
+kernel-time-min: N/A
+kernel-time-samples: N/A
+kernel-time-throughput: N/A
+run-time-mean: 633.273865 [s]
+run-time-stddev: 0.000000 [s]
+run-time-median: 633.273865 [s]
+run-time-min: 633.273865 [s]
+run-time-samples: "633.273865"
+run-time-throughput: N/A
+Verification: PASS
+==4112142== 
+==4112142== I   refs:      48,989,340,641
+==4112142== I1  misses:            29,354
+==4112142== LLi misses:            10,878
+==4112142== I1  miss rate:           0.00%
+==4112142== LLi miss rate:           0.00%
+==4112142== 
+==4112142== D   refs:      19,263,492,991  (13,501,590,172 rd   + 5,761,902,819 wr)
+==4112142== D1  misses:     6,458,842,836  ( 6,456,213,806 rd   +     2,629,030 wr)
+==4112142== LLd misses:     6,454,625,690  ( 6,451,999,841 rd   +     2,625,849 wr)
+==4112142== D1  miss rate:           33.5% (          47.8%     +           0.0%  )
+==4112142== LLd miss rate:           33.5% (          47.8%     +           0.0%  )
+==4112142== 
+==4112142== LL refs:        6,458,872,190  ( 6,456,243,160 rd   +     2,629,030 wr)
+==4112142== LL misses:      6,454,636,568  ( 6,452,010,719 rd   +     2,625,849 wr)
+==4112142== LL miss rate:             9.5% (          10.3%     +           0.0%  )

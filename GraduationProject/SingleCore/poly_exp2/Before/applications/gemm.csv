@@ -1,0 +1,36 @@
+"Scope","CPUTIME (sec).[0,0] (I)","CPUTIME (sec).[0,0] (E)"
+"Experiment Aggregate Metrics",72.46461,72.46461
+"Experiment Aggregate Metrics",72.46461,72.46461
+"<program root>",72.46461, 
+"main",72.46461, 
+"BenchmarkApp::run<Polybench_Gemm>()",72.46461, 
+"BenchmarkManager<Polybench_Gemm>::run<>()",72.46461, 
+"loop at <unknown file> [gemm]: 0",72.46461, 
+"Polybench_Gemm::run(std::vector<cl::sycl::event, std::allocator<cl::sycl::event> >&)",36.514427, 
+"_ZN2cl4sycl6detail17NDLoopIterateImplILi1ELi0ENS0_5rangeEZNS1_10HostKernelISt8functionIFvRKNS0_7nd_itemILi1EEEEES7_Li1EE9runOnHostIS7_EENSt9enable_ifIXsr3std7is_sameIT_S7_EE5valueEvE4typeERKNS1_8NDRDescTEEUlRKNS0_2idILi1EEEE_S3_EC2ERKNS3_ILi1EEEST_ST_SP_RSR_",36.514427, 
+"cl::sycl::queue::submit_impl(std::function<void (cl::sycl::handler&)>, cl::sycl::detail::code_location const&)",36.514427, 
+"cl::sycl::detail::queue_impl::submit_impl(std::function<void (cl::sycl::handler&)> const&, std::shared_ptr<cl::sycl::detail::queue_impl> const&, std::shared_ptr<cl::sycl::detail::queue_impl> const&, std::shared_ptr<cl::sycl::detail::queue_impl> const&, cl::sycl::detail::code_location const&, std::function<void (bool, bool, cl::sycl::event&)> const*)",36.514427, 
+"cl::sycl::handler::finalize()",36.514427, 
+"cl::sycl::detail::Scheduler::addCG(std::unique_ptr<cl::sycl::detail::CG, std::default_delete<cl::sycl::detail::CG> >, std::shared_ptr<cl::sycl::detail::queue_impl>)",36.514427, 
+"cl::sycl::detail::Command::enqueue(cl::sycl::detail::EnqueueResultT&, cl::sycl::detail::BlockingT, std::vector<cl::sycl::detail::Command*, std::allocator<cl::sycl::detail::Command*> >&)",36.514427, 
+"cl::sycl::detail::ExecCGCommand::enqueueImp()",36.514427, 
+"cl::sycl::detail::HostKernel<std::function<void (cl::sycl::nd_item<2> const&)>, cl::sycl::nd_item<2>, 2>::call(cl::sycl::detail::NDRDescT const&, cl::sycl::detail::HostProfilingInfo*)",36.514427, 
+"cl::sycl::detail::HostKernel<std::function<void (cl::sycl::nd_item<2> const&)>, cl::sycl::nd_item<2>, 2>::~HostKernel()",36.514427, 
+"_ZN2cl4sycl6detail17NDLoopIterateImplILi2ELi1ENS0_5rangeEZNS1_10HostKernelISt8functionIFvRKNS0_7nd_itemILi2EEEEES7_Li2EE9runOnHostIS7_EENSt9enable_ifIXsr3std7is_sameIT_S7_EE5valueEvE4typeERKNS1_8NDRDescTEEUlRKNS0_2idILi2EEEE_S3_EC2ERKNS3_ILi2EEEST_ST_SP_RSR_",36.514427,0.031879
+"loop at <unknown file> [gemm]: 0",36.514427, 
+"loop at <unknown file> [gemm]: 0",36.514427,0.015927
+"loop at <unknown file> [gemm]: 0",36.4985, 
+"loop at <unknown file> [gemm]: 0",36.4985,0.015952
+"_ZZN2cl4sycl7handler15ResetHostKernelIZZN14Polybench_Gemm3runERSt6vectorINS0_5eventESaIS5_EEENKUlRS1_E_clES9_EUlNS0_4itemILi2ELb1EEEE_SC_Li2EEENSt9enable_ifIXsr3std7is_sameIT0_NSB_IXT1_ELb1EEEEE5valueEPT_E4typeERKSH_EN20NormalizedKernelTypeclERKNS0_7nd_itemILi2EEE",36.19544,36.1476
+"loop at <unknown file> [gemm]: 0",36.0119,36.0119
+"<unknown file> [gemm]: 0",36.0119,36.0119
+"<unknown file> [gemm]: 0",0.127725,0.127725
+"Polybench_Gemm::run(std::vector<cl::sycl::event, std::allocator<cl::sycl::event> >&)::{lambda(cl::sycl::handler&)#1}::operator()(cl::sycl::handler&) const::{lambda(cl::sycl::item<2, true>)#1}::~item()",0.047837,0.047837
+"loop at <unknown file> [gemm]: 0",0.007973,0.007973
+"_ZNSt14_Function_base13_Base_managerIZN2cl4sycl7handler15ResetHostKernelIZZN14Polybench_Gemm3runERSt6vectorINS2_5eventESaIS7_EEENKUlRS3_E_clESB_EUlNS2_4itemILi2ELb1EEEE_SE_Li2EEENSt9enable_ifIXsr3std7is_sameIT0_NSD_IXT1_ELb1EEEEE5valueEPT_E4typeERKSJ_E20NormalizedKernelTypeE10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation",0.17545602, 
+"_ZNSt14_Function_base13_Base_managerIZN2cl4sycl7handler15ResetHostKernelIZZN14Polybench_Gemm3runERSt6vectorINS2_5eventESaIS7_EEENKUlRS3_E_clESB_EUlNS2_4itemILi2ELb1EEEE_SE_Li2EEENSt9enable_ifIXsr3std7is_sameIT0_NSD_IXT1_ELb1EEEEE5valueEPT_E4typeERKSJ_E20NormalizedKernelTypeE10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation",0.103671,0.095703
+"<unknown file> [gemm]: 0",0.015952,0.015952
+"_ZNSt17_Function_handlerIFvRKN2cl4sycl7nd_itemILi2EEEEZNS1_7handler15ResetHostKernelIZZN14Polybench_Gemm3runERSt6vectorINS1_5eventESaISB_EEENKUlRS7_E_clESF_EUlNS1_4itemILi2ELb1EEEE_SI_Li2EEENSt9enable_ifIXsr3std7is_sameIT0_NSH_IXT1_ELb1EEEEE5valueEPT_E4typeERKSN_E20NormalizedKernelTypeE9_M_invokeERKSt9_Any_dataS5_",0.007981,0.007981
+"<unknown file> [gemm]: 0",0.015927,0.015927
+"Polybench_Gemm::verify(VerificationSetting&)",35.91382,35.905827
+"std::_Hashtable<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Identity, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, true, true> >::count(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) const",0.036361,0.007951

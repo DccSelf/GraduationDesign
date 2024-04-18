@@ -1,0 +1,19 @@
+********** Results for Polybench_Gemm**********
+problem-size: 1024
+local-size: 256
+device-name: SYCL host device
+sycl-implementation: LLVM (Intel DPC++)
+throughput-metric: N/A
+kernel-time-mean: N/A
+kernel-time-stddev: N/A
+kernel-time-median: N/A
+kernel-time-min: N/A
+kernel-time-samples: N/A
+kernel-time-throughput: N/A
+run-time-mean: 24.155756 [s]
+run-time-stddev: 0.000000 [s]
+run-time-median: 24.155756 [s]
+run-time-min: 24.155756 [s]
+run-time-samples: "24.155756"
+run-time-throughput: N/A
+Verification: PASS
