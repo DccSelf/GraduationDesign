@@ -1,0 +1,4 @@
+# 在BenchC中获取LLVM IR文件步骤：
+1.clang -O3 -c -emit-llvm -I utilities -I linear-algebra/kernels/mvt utilities/polybench.c -o polybench.bc
+2.clang -O3 -c -emit-llvm -I utilities -I linear-algebra/kernels/mvt linear-algebra/kernels/mvt/mvt.c -DPOLYBENCH_TIME -o mvt.bc
+3./thfs1/home/penglin/dcc/Polygeist/build/bin/llvm-dis mvt.bc -o mvt.ll

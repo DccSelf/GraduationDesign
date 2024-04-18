@@ -1,0 +1,12 @@
+"Scope","CPUTIME (sec).[0,0] (I)","CPUTIME (sec).[0,0] (E)"
+"Experiment Aggregate Metrics",0.866301,0.866301
+"Experiment Aggregate Metrics",0.866301,0.866301
+"<program root>",0.866301, 
+"main [gemm]",0.866301,0.851821
+"loop at <unknown file> [gemm]: 0",0.84569, 
+"loop at <unknown file> [gemm]: 0",0.84569,0.015986
+"loop at <unknown file> [gemm]: 0",0.829704,0.829704
+"<unknown file> [gemm]: 0",0.829704,0.829704
+"<unknown file> [gemm]: 0",0.015986,0.015986
+"polybench_timer_start [gemm]",0.01448,0.01448
+"loop at <unknown file> [gemm]: 0",0.006131, 

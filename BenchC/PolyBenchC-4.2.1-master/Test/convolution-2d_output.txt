@@ -1,0 +1,24 @@
+==2916239== Cachegrind, a cache and branch-prediction profiler
+==2916239== Copyright (C) 2002-2017, and GNU GPL'd, by Nicholas Nethercote et al.
+==2916239== Using Valgrind-3.17.0 and LibVEX; rerun with -h for copyright info
+==2916239== Command: ./convolution-2d
+==2916239== 
+--2916239-- Warning: Cannot auto-detect cache config, using defaults.
+--2916239--          Run with -v to see.
+1.981417
+==2916239== 
+==2916239== I   refs:      266,653,612
+==2916239== I1  misses:          1,363
+==2916239== LLi misses:          1,156
+==2916239== I1  miss rate:        0.00%
+==2916239== LLi miss rate:        0.00%
+==2916239== 
+==2916239== D   refs:       52,556,469  (42,041,638 rd   + 10,514,831 wr)
+==2916239== D1  misses:      6,298,636  ( 3,676,668 rd   +  2,621,968 wr)
+==2916239== LLd misses:      4,197,531  ( 1,575,692 rd   +  2,621,839 wr)
+==2916239== D1  miss rate:        12.0% (       8.7%     +       24.9%  )
+==2916239== LLd miss rate:         8.0% (       3.7%     +       24.9%  )
+==2916239== 
+==2916239== LL refs:         6,299,999  ( 3,678,031 rd   +  2,621,968 wr)
+==2916239== LL misses:       4,198,687  ( 1,576,848 rd   +  2,621,839 wr)
+==2916239== LL miss rate:          1.3% (       0.5%     +       24.9%  )
