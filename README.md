@@ -30,6 +30,7 @@ GraduationDesign/singlecore/barrier NDRange使用显式barrier执行情况
 
 #### C吞吐量评估 /BenchC/PolyBenchC-4.2.1
 /BenchC/PolyBenchC-4.2.1/Test gcc -O3
+
 /BenchC/PolyBenchC-4.2.1/Test-fopenmp gcc -O3 -fopenmp
 
 编译方法：
@@ -38,6 +39,7 @@ gcc -O3 -I ../utilities -I ../linear-algebra/kernels/atax ../utilities/polybench
 
 #### C带宽评估 /BenchC/STREAMbenchmark
 /BenchC/STREAMbenchmark/stream_c   gcc -O3
+
 /BenchC/STREAMbenchmark/stream_c_fopenmp  gcc -O3 -fopenmp （线程绑核也执行这个文件即可 ./stream_c_fopenmp）
 
 编译方法：gcc -O3 -fopenmp stream.c -o stream_c_fopenmp
@@ -45,7 +47,9 @@ gcc -O3 -I ../utilities -I ../linear-algebra/kernels/atax ../utilities/polybench
 #### 线程绑核需要提前设置的环境变量
 ##### OpenMP 
 export GOMP_CPU_AFFINITY="0-63"
+
 export OMP_PROC_BIND="true"
+
 export OMP_PLACES=cores
 
 yhrun -N 1 -n 1 -c 64 -p thcp1 ./gemm_fopenmp
