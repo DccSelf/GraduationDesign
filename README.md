@@ -7,14 +7,23 @@
 
 #### SYCL性能评估和优化的数据和代码在GraduationDesign目录中
 GraduationDesign/Multicore 多核实验部分
+
 GraduationDesign/Multicore/dag_exp1 SYCL实现的调度开销和所使用后端的开销
+
 GraduationDesign/Multicore/poly_exp2 SYCL吞吐量
+
 GraduationDesign/Multicore/stream_exp3 SYCL带宽
+
 GraduationDesign/Multicore/barrier NDRange使用显式barrier执行情况
+
 GraduationDesign/singlecore 单核实验部分
+
 GraduationDesign/singlecore/dag_exp1 SYCL实现的调度开销和所使用后端的开销
+
 GraduationDesign/singlecore/poly_exp2 SYCL吞吐量
+
 GraduationDesign/singlecore/stream_exp3 SYCL带宽
+
 GraduationDesign/singlecore/barrier NDRange使用显式barrier执行情况
 
 编译方法：clang++ -fsycl -O3 sycl-bench/include sycl-bench/polybench/common -DSYCL_BENCH_ENABLE_QUEUE_PROFILING gemm.cpp -o gemm
