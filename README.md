@@ -16,11 +16,13 @@ GraduationDesign/singlecore/dag_exp1 SYCL实现的调度开销和所使用后端
 GraduationDesign/singlecore/poly_exp2 SYCL吞吐量
 GraduationDesign/singlecore/stream_exp3 SYCL带宽
 GraduationDesign/singlecore/barrier NDRange使用显式barrier执行情况
+
 编译方法：clang++ -fsycl -O3 sycl-bench/include sycl-bench/polybench/common -DSYCL_BENCH_ENABLE_QUEUE_PROFILING gemm.cpp -o gemm
 
 #### C吞吐量评估 /BenchC/PolyBenchC-4.2.1
 /BenchC/PolyBenchC-4.2.1/Test gcc -O3
 /BenchC/PolyBenchC-4.2.1/Test-fopenmp gcc -O3 -fopenmp
+
 编译方法：
 cd Test
 gcc -O3 -I ../utilities -I ../linear-algebra/kernels/atax ../utilities/polybench.c ../linear-algebra/kernels/atax/atax.c -DPOLYBENCH_DUMP_ARRAYS -o atax_ref
@@ -28,6 +30,7 @@ gcc -O3 -I ../utilities -I ../linear-algebra/kernels/atax ../utilities/polybench
 #### C带宽评估 /BenchC/STREAMbenchmark
 /BenchC/STREAMbenchmark/stream_c   gcc -O3
 /BenchC/STREAMbenchmark/stream_c_fopenmp  gcc -O3 -fopenmp （线程绑核也执行这个文件即可 ./stream_c_fopenmp）
+
 编译方法：gcc -O3 -fopenmp stream.c -o stream_c_fopenmp
 
 #### 线程绑核需要提前设置的环境变量
