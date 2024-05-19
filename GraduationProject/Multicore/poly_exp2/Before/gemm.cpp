@@ -82,13 +82,13 @@ class Polybench_Gemm {
 			cgh.parallel_for<Gemm>(C_buffer.get_range(), [=, NK_ = size](item<2> item) {
 				const auto i = item[0];
 				const auto j = item[1];
-
 				C[item] *= BETA;
-
 				for(size_t k = 0; k < NK_; k++) {
 					C[item] += ALPHA * A[{i, k}] * B[{k, j}];
 				}
 			});
+
+			
 		}));
 	}
 

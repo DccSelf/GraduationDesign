@@ -1,11 +1,35 @@
 ﻿# Benchmark name,problem_size,Best_Rate_GiB/s,Avg_time,Min_time,Max_time
-Copy,10000000,8.5392,0.008747,0.008717,0.008793
+Copy1,10000000,8.5392,0.008747,0.008717,0.008793
 # Benchmark name,problem_size,Best_Rate_GiB/s,Avg_time,Min_time,Max_time
-Scale,10000000,8.5483,0.008725,0.008682,0.008772
+Scale1,10000000,8.5483,0.008725,0.008682,0.008772
 # Benchmark name,problem_size,Best_Rate_GiB/s,Avg_time,Min_time,Max_time
-Add,10000000,8.0903,0.013865,0.013815,0.013939
+Add1,10000000,8.0903,0.013865,0.013815,0.013939
 # Benchmark name,problem_size,Best_Rate_GiB/s,Avg_time,Min_time,Max_time
-Traid,10000000,8.1155,0.013825,0.013760,0.013964
+Traid1,10000000,8.1155,0.013825,0.013760,0.013964
+# Benchmark name,problem_size,Best_Rate_GiB/s,Avg_time,Min_time,Max_time
+Copy8,100000000,10.5172,0.071608,0.070842,0.072155
+# Benchmark name,problem_size,Best_Rate_GiB/s,Avg_time,Min_time,Max_time
+Scale8,100000000,11.2336,0.066952,0.066324,0.067762
+# Benchmark name,problem_size,Best_Rate_GiB/s,Avg_time,Min_time,Max_time
+Add8,100000000,11.6117,0.096604,0.096247,0.097041
+# Benchmark name,problem_size,Best_Rate_GiB/s,Avg_time,Min_time,Max_time
+Traid8,100000000,11.6034,0.096579,0.096316,0.096956
+# Benchmark name,problem_size,Best_Rate_GiB/s,Avg_time,Min_time,Max_time
+Copy16,100000000,21.0148,0.037528,0.035454,0.044124
+# Benchmark name,problem_size,Best_Rate_GiB/s,Avg_time,Min_time,Max_time
+Scale16,100000000,22.2047,0.035720,0.033554,0.043125
+# Benchmark name,problem_size,Best_Rate_GiB/s,Avg_time,Min_time,Max_time
+Add16,100000000,23.1011,0.049757,0.048378,0.059042
+# Benchmark name,problem_size,Best_Rate_GiB/s,Avg_time,Min_time,Max_time
+Traid16,100000000,23.0802,0.048815,0.048422,0.049015
+# Benchmark name,problem_size,Best_Rate_GiB/s,Avg_time,Min_time,Max_time
+Copy32,100000000,41.6328,0.018212,0.017896,0.018355
+# Benchmark name,problem_size,Best_Rate_GiB/s,Avg_time,Min_time,Max_time
+Scale32,100000000,44.2691,0.017033,0.016830,0.017237
+# Benchmark name,problem_size,Best_Rate_GiB/s,Avg_time,Min_time,Max_time
+Add32,100000000,45.8516,0.024508,0.024374,0.024640
+# Benchmark name,problem_size,Best_Rate_GiB/s,Avg_time,Min_time,Max_time
+Traid32,100000000,45.7710,0.024531,0.024417,0.024609
 # Benchmark name,problem_size,Best_Rate_GiB/s,Avg_time,Min_time,Max_time
 Copy_fopenmp,100000000,82.1806,0.009182,0.009066,0.009292
 # Benchmark name,problem_size,Best_Rate_GiB/s,Avg_time,Min_time,Max_time

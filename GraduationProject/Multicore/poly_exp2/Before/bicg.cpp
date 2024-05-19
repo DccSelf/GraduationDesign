@@ -76,11 +76,11 @@ class Polybench_Bicg {
 
 			cgh.parallel_for<Bicg1>(s_buffer.get_range(), [=, size_ = size](item<1> item) {
 				const auto j = item[0];
-
 				for(size_t i = 0; i < size_; i++) {
 					s[item] += A[{i, j}] * r[i];
 				}
 			});
+			
 		}));
 
 		events.push_back(args.device_queue.submit([&](handler& cgh) {

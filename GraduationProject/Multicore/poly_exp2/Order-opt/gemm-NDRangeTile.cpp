@@ -83,8 +83,6 @@ class Polybench_Gemm {
             size_t tile_size = args.local_size;
             local_accessor<DATA_TYPE> tileA{tile_size,cgh};
 
-			//sycl::nd_range<2> execution_range{sycl::range<2>{size,size}, sycl::range<2>{args.local_size,args.local_size}};
-			//problem_size   local_size
 			cgh.parallel_for<Gemm>(nd_range<2>{{size,size},{1,tile_size}},[=,NK_=size](nd_item<2> item){
                 size_t m = item.get_global_id()[0];
                 size_t n = item.get_global_id()[1];
@@ -97,8 +95,6 @@ class Polybench_Gemm {
                     //load the matrix tile from matrix A and synchronize to ensure all work-items hava a consistent view
                     tileA[i] = A[{m,kk+i}];
                     item.barrier();
-
-
                     //perform computation using the local memory tile,and matrix B in global memory
                     for(size_t k=0;k<tile_size;k++)
                     {
@@ -106,10 +102,10 @@ class Polybench_Gemm {
                     }
                     item.barrier();
                 }
-
                 C[{m,n}] *=BETA;
                 C[{m,n}] += sum;
 			});
+			
 		
 		}));
 	}
