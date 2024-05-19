@@ -13,7 +13,9 @@
 ###### GraduationDesign/Multicore 多核实验部分
 
 GraduationDesign/Multicore/dag_exp1 SYCL实现的调度开销和后端的开销
+
 GraduationDesign/Multicore/poly_exp2 SYCL吞吐量
+
 GraduationDesign/Multicore/stream_exp3 SYCL带宽
 
 // GraduationDesign/Multicore/barrier NDRange使用显式barrier执行情况 
@@ -23,7 +25,9 @@ GraduationDesign/Multicore/stream_exp3 SYCL带宽
 ###### GraduationDesign/singlecore 单核实验部分
 
 GraduationDesign/singlecore/dag_exp1 SYCL实现的调度开销和所使用后端的开销
+
 GraduationDesign/singlecore/poly_exp2 SYCL吞吐量
+
 GraduationDesign/singlecore/stream_exp3 SYCL带宽
 
 // GraduationDesign/singlecore/barrier NDRange使用显式barrier执行情况
@@ -35,6 +39,7 @@ GraduationDesign/singlecore/stream_exp3 SYCL带宽
 #### C吞吐量评估 /BenchC/PolyBenchC-4.2.1
 
 /BenchC/PolyBenchC-4.2.1/Test  编译命令：gcc -O3
+
 /BenchC/PolyBenchC-4.2.1/Test-fopenmp  编译命令：gcc -O3 -fopenmp
 
 编译方法：
@@ -42,7 +47,9 @@ cd Test
 gcc -O3 -I ../utilities -I ../linear-algebra/kernels/atax ../utilities/polybench.c ../linear-algebra/kernels/atax/atax.c -DPOLYBENCH_DUMP_ARRAYS -o atax_ref
 
 #### C带宽评估 /BenchC/STREAMbenchmark
+
 /BenchC/STREAMbenchmark/stream_c   编译命令：gcc -O3
+
 /BenchC/STREAMbenchmark/stream_c_fopenmp  编译命令：gcc -O3 -fopenmp 
 //（线程绑核也执行这个文件即可 ./stream_c_fopenmp）
 
@@ -51,8 +58,11 @@ gcc -O3 -I ../utilities -I ../linear-algebra/kernels/atax ../utilities/polybench
 #### 线程绑核需要提前设置的环境变量
 ##### GCC OpenMP 
 export GOMP_CPU_AFFINITY="0-63" //线程亲和性
+
 export OMP_PROC_BIND="true" //线程尽可能紧密地绑定到其启动的CPU核心
+
 export OMP_PLACES=cores //线程存放在物理核心
+
 export OMP_NUM_THREADS=1/8/16/32/64 //最大线程数
 
 //启动64个线程执行
@@ -60,6 +70,7 @@ yhrun -N 1 -n 1 -c 64 -p thcp1 ./gemm_fopenmp
 
 ##### DPC++ POCL
 export POCL_AFFINITY=1  //线程亲和性
+
 export POCL_MAX_PTHREAD_COUNT=1/8/16/32/64 //最大线程数
 
 //启动64个线程执行
