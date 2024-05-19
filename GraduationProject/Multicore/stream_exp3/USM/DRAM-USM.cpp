@@ -66,8 +66,7 @@ public:
    }
 
   static ThroughputMetric getThroughputMetric(const BenchmarkArgs& args) {
-    const double copiedGiB =
-        getBufferSize<DataT, Dims>(args.problem_size).size() * sizeof(DataT) / 1024.0 / 1024.0 / 1024.0;
+    const double copiedGiB = getBufferSize<DataT, Dims>(args.problem_size).size() * sizeof(DataT) / 1024.0 / 1024.0 / 1024.0;
     // Multiply by two as we are both reading and writing one element in each thread.
     return {copiedGiB * 2.0, "GiB"};
   }
@@ -79,7 +78,17 @@ public:
 
     events.push_back(args.device_queue.submit([&](cl::sycl::handler& cgh) {
       // We spawn one work item for each buffer element to be copied.
-      cgh.parallel_for<MicroBenchDRAMKernel<DataT, Dims>>(USM_size, [=](s::id<Dims> gid) { out[gid] = in[gid]; });
+      cgh.parallel_for<MicroBenchDRAMKernel<DataT, Dims>>(USM_size, [=](s::id<Dims> gid) { 
+        out[gid] = in[gid]; 
+      });
+      // size_t W = args.local_size;
+      // cgh.parallel_for<MicroBenchDRAMKernel<DataT, Dims>>(s::range{USM_size}, [=, N=USM_size](s::item<Dims> it) { 
+      
+      //   for(size_t i = it.get_id()[0]; i<N; i+= it.get_range()[0]){
+      //     out[i] = in[i];
+      //   }
+      
+      // });
     }));
   }
 
@@ -111,6 +120,7 @@ public:
 int main(int argc, char** argv) {
   BenchmarkApp app(argc, argv);
 
-  app.run<MicroBenchDRAM<float, 1>>();
+  //app.run<MicroBenchDRAM<float, 1>>();
+  app.run<MicroBenchDRAM<double, 1>>();
   return 0;
 }

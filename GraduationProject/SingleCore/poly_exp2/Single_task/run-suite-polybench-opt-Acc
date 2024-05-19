@@ -108,9 +108,6 @@ default_profile = {
     'mvt' : {
       '--size' : create_log_range(2**14, 2**14)
     },
-    'arith' : {
-      '--size' : create_log_range(2**20, 2**20)
-    },
   },
   'individual-benchmark-flags' : set([])
 }

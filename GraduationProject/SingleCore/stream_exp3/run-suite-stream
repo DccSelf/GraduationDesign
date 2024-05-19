@@ -39,11 +39,11 @@ output_file = "./sycl-bench-stream-singlecore.csv"
 
 default_profile = {
   # Problem size will not be increased if this runtime is exceeded
-  'max-allowed-runtime' : 10800.0, #seconds.
+  'max-allowed-runtime' : 108000000.0, #seconds.
   'default-options' : {
-    '--size' : create_log_range(1024, 1024),
+    '--size' : create_log_range(134217728, 134217728),
     '--local' : create_log_range(256,256),
-    '--num-runs' : 10,
+    '--num-runs' : 3,
     '--output' : output_file
   },
   'default-flags' : set([]),

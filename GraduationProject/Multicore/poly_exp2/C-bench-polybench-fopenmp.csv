@@ -11,8 +11,6 @@ Polybench_Gemm,1024,0.22079533,N/A,1.36%
 # Benchmark name,problem-size,run-time-mean,run-time-throughput,run-time-stddev
 Polybench_Syrk,1024,0.73390866,N/A,0.64%
 # Benchmark name,problem-size,run-time-mean,run-time-throughput,run-time-stddev
-Polybench_Covariance,1024,1.91008633,N/A,0.59%
-# Benchmark name,problem-size,run-time-mean,run-time-throughput,run-time-stddev
 Polybench_Gesummv,16384,0.14914166,N/A,0.82%
 # Benchmark name,problem-size,run-time-mean,run-time-throughput,run-time-stddev
 Polybench_2DConvolution,4096,0.03648800,N/A,1.28%
@@ -23,10 +21,6 @@ Polybench_Atax,4096,0.01348400,N/A,1.73%
 # Benchmark name,problem-size,run-time-mean,run-time-throughput,run-time-stddev
 Polybench_Mvt,16384,2.68504200,N/A,1.19%
 # Benchmark name,problem-size,run-time-mean,run-time-throughput,run-time-stddev
-Polybench_Correlation,1024,1.89550833,N/A,0.31%
-# Benchmark name,problem-size,run-time-mean,run-time-throughput,run-time-stddev
 Polybench_Syr2k,1024,1.36720433,N/A,1.51%
 # Benchmark name,problem-size,run-time-mean,run-time-throughput,run-time-stddev
 Polybench_fdtd2d,1024,1.08155401,N/A,1.30%
-# Benchmark name,problem-size,run-time-mean,run-time-throughput,run-time-stddev
-Polybench_Arith_fp32,1048576,0.081936,N/A,0.99%

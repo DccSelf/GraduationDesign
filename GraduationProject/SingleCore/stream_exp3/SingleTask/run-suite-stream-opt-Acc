@@ -35,7 +35,7 @@ def create_log_range(begin, end):
     --no-verification - disable verification entirely
     --no-ndrange-kernels - do not run kernels based on ndrange parallel for
 '''
-output_file = "./sycl-bench-stream-singlecore-opt-Acc.csv"
+output_file = "./sycl-bench-stream-singlecore-opt-Acc1.csv"
 
 default_profile = {
   # Problem size will not be increased if this runtime is exceeded

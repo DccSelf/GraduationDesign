@@ -84,38 +84,37 @@ T reduce(std::vector<cl::sycl::event>& events, s::buffer<T, 1> &input_buf) {
     
         // local memory for reduction
         auto local_mem = s::accessor <T, 1, s::access::mode::read_write, s::access::target::local> {s::range<1>(wgroup_size), cgh};
-        //Single Task to eliminate 
-		cgh.single_task<class VecReduceKernel<T>>([=](){
-			for(int global_id=0; global_id<n_wgroups*wgroup_size;global_id+=wgroup_size)
-		    {
-				int gid = global_id;
-				for(int lid=0;lid<wgroup_size;lid++,gid++)
-				{
-					local_mem[lid] = 0;
-					if ((elements_per_thread * gid) < array_size) {
-		                local_mem[lid] = global_mem[elements_per_thread*gid] + global_mem[elements_per_thread*gid + 1];
-		            }
-				}
-				//item.barrier();
-				for (size_t stride = 1; stride < wgroup_size; stride *= elements_per_thread) {
-					
-					for(int lid=0;lid<wgroup_size;lid++)
-					{
-						auto local_mem_index = elements_per_thread * stride * lid;
-		              	if (local_mem_index < wgroup_size) {
-		                  local_mem[local_mem_index] = local_mem[local_mem_index] + local_mem[local_mem_index + stride];
-		              	}
-					}
-	              	//item.barrier(s::access::fence_space::local_space);
-	            }
-				
-				global_mem[global_id] = local_mem[0];
-		    }      
+  		  
+        cgh.single_task<class VecReduceKernel<T>>([=](){
+  			  for(int global_id=0; global_id<n_wgroups*wgroup_size;global_id+=wgroup_size)
+  		      {
+  				  int gid = global_id;
+    				for(int lid=0;lid<wgroup_size;lid++,gid++)
+    				{
+    					local_mem[lid] = 0;
+    					if ((elements_per_thread * gid) < array_size) {
+    		                local_mem[lid] = global_mem[elements_per_thread*gid] + global_mem[elements_per_thread*gid + 1];
+    		            }
+    				}
+  				//item.barrier();
+  				for (size_t stride = 1; stride < wgroup_size; stride *= elements_per_thread) {
+  					
+  					for(int lid=0;lid<wgroup_size;lid++)
+  					{
+  						auto local_mem_index = elements_per_thread * stride * lid;
+  		              	if (local_mem_index < wgroup_size) {
+  		                  local_mem[local_mem_index] = local_mem[local_mem_index] + local_mem[local_mem_index + stride];
+  		              	}
+  					}
+  	              	//item.barrier(s::access::fence_space::local_space);
+  	      }
+  				
+  				global_mem[global_id] = local_mem[0];
+  		  }      
 		});
 
 		
-		// cl::sycl::nd_range<1> ndrange (n_wgroups*wgroup_size, wgroup_size);
-
+		    // cl::sycl::nd_range<1> ndrange (n_wgroups*wgroup_size, wgroup_size);
         // cgh.parallel_for<class VecReduceKernel<T>>(ndrange,
         // [=](cl::sycl::nd_item<1> item) 
         //   {

@@ -81,12 +81,9 @@ class Polybench_Bicg {
 					atomic_ref<float,memory_order::relaxed,memory_scope::system,access::address_space::global_space> atomic_acc(s[j]);
 					atomic_acc += A[{i,j}] * r[i];
 				}
-				// for(size_t j = 0; j < size_; j++) {
-				// 	s[j] += A[{i,j}] * r[i];
-				// }
 			});
 		}));
-
+		
 		events.push_back(args.device_queue.submit([&](handler& cgh) {
 			auto A = A_buffer.get_access<access::mode::read>(cgh);
 			auto p = p_buffer.get_access<access::mode::read>(cgh);

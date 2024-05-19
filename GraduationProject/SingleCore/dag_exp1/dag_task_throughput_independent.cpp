@@ -55,7 +55,6 @@ public:
         auto acc = dummy_buffers[i].get_access<sycl::access::mode::discard_write>(cgh);
         
         cgh.parallel_for<IndependentDagTaskThroughputKernelBasicPF>(
-          
           sycl::range<1>{args.local_size},
           [=](sycl::id<1> idx)
         {

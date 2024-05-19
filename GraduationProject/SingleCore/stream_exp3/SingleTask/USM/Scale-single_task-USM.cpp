@@ -70,14 +70,32 @@ public:
     // input_buf.initialize(args.device_queue, input.data(), buffer_size);
     // output_buf.initialize(args.device_queue, buffer_size);
 
-    //usm
     input_usm = malloc_device<DataT>(USM_size,args.device_queue);
     //copy host_data:input to device
+    //初始化 热启动 性能相比直接使用USM提升一倍
     args.device_queue.submit([&](cl::sycl::handler& h){
-        h.memcpy(input_usm, &input[0], USM_size*sizeof(DataT));
-    });
-    args.device_queue.wait_and_throw();
+            //h.memcpy(input_usm, &input[0], USM_size*sizeof(DataT));
+            auto in_d = input_usm;
+            auto in_h = &input[0];
+            h.single_task([=,N=USM_size](){
+              for(size_t i=0;i<N;i++)
+              {
+                in_d[i] = in_h[i];
+              }
+            });
+    }).wait();
+        
     output_usm = malloc_device<DataT>(USM_size,args.device_queue);
+    args.device_queue.submit([&](cl::sycl::handler& h){
+            //h.memcpy(input_usm, &input[0], USM_size*sizeof(DataT));
+            auto in_d = output_usm;
+            h.single_task([=,N=USM_size](){
+              for(size_t i=0;i<N;i++)
+              {
+                in_d[i] = 0.0;
+              }
+            });
+    }).wait();
     
   }
 

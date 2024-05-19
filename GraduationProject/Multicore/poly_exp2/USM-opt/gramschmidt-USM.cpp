@@ -135,60 +135,6 @@ class Polybench_Gramschmidt {
 		}));
     }
 
-	// void run(std::vector<cl::sycl::event>& events) {
-	// 	using namespace cl::sycl;
-
-    //     auto a_usm = A_usm;
-    //     auto r_usm = R_usm;
-    //     auto q_usm = Q_usm;
-
-	// 	for(size_t k = 0; k < USM_size; k++) {
-	// 		events.push_back(args.device_queue.submit([&](handler& cgh) {
-	// 			// auto A = A_buffer.get_access<access::mode::read>(cgh);
-	// 			// auto R = R_buffer.get_access<access::mode::write>(cgh);
-	// 			cgh.parallel_for<Gramschmidt1>(range<2>(1, 1), [=, M_ = USM_size](item<2> item) {
-	// 				DATA_TYPE nrm = 0;
-	// 				for(size_t i = 0; i < M_; i++) {
-	// 					nrm += a_usm[i*M_+k] * a_usm[i*M_+k];
-	// 				}
-	// 				r_usm[k*M_+k] = cl::sycl::sqrt(nrm);
-	// 			});
-	// 		}));
-
-	// 		events.push_back(args.device_queue.submit([&](handler& cgh) {
-	// 			// auto A = A_buffer.get_access<access::mode::read>(cgh);
-	// 			// auto R = R_buffer.get_access<access::mode::read>(cgh);
-	// 			// auto Q = Q_buffer.get_access<access::mode::write>(cgh);
-	// 			cgh.parallel_for<Gramschmidt2>(range<2>(USM_size, 1), id<2>(0, k), [=,M_=USM_size](item<2> item) {
-    //                 size_t i = item[0];
-                    
-    //                 q_usm[i*M_+k] = a_usm[i*M_+k] / r_usm[k*M_+k]; 
-    //             });
-	// 		}));
-
-	// 		events.push_back(args.device_queue.submit([&](handler& cgh) {
-	// 			// auto A = A_buffer.get_access<access::mode::read_write>(cgh);
-	// 			// auto R = R_buffer.get_access<access::mode::write>(cgh);
-	// 			// auto Q = Q_buffer.get_access<access::mode::read>(cgh);
-
-	// 			cgh.parallel_for<Gramschmidt3>(range<2>(USM_size, 1), [=, M_ = USM_size, N_ = USM_size](item<2> item) {
-	// 				size_t j = item[0];
-
-	// 				if(j <= k || j >= N_) return;
-
-	// 				r_usm[k*M_+j] = 0;
-	// 				for(size_t i = 0; i < M_; i++) {
-	// 					r_usm[k*M_+j] += q_usm[i*M_+k] * a_usm[i*M_+j];
-	// 				}
-
-	// 				for(size_t i = 0; i < M_; i++) {
-	// 					a_usm[i*M_+j] -= q_usm[i*M_+k] * r_usm[k*M_+j];
-	// 				}
-	// 			});
-	// 		}));
-	// 	}
-	// }
-
 	bool verify(VerificationSetting&) {
 		constexpr auto ERROR_THRESHOLD = 0.05;
 

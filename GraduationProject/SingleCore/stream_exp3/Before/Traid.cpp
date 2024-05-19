@@ -37,7 +37,7 @@ protected:
 
 public:
   MicroBenchTraid(const BenchmarkArgs& args)
-      : args(args), buffer_size(getBufferSize<DataT, Dims>(args.problem_size)), input(buffer_size.size(), 33.f) {}
+      : args(args), buffer_size(args.problem_size), input(args.problem_size, 33.f) {}
 
   void setup() {
     input_buf.initialize(args.device_queue, input.data(), buffer_size);
@@ -45,8 +45,7 @@ public:
   }
 
   static ThroughputMetric getThroughputMetric(const BenchmarkArgs& args) {
-    const double copiedGiB =
-        getBufferSize<DataT, Dims>(args.problem_size).size() * sizeof(DataT) / 1024.0 / 1024.0 / 1024.0;
+    const double copiedGiB = args.problem_size * sizeof(DataT) / 1024.0 / 1024.0 / 1024.0;
     // Multiply by two as we are both reading and writing one element in each thread.
     return {copiedGiB * 3.0, "GiB"};
   }

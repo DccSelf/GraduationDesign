@@ -75,7 +75,7 @@ class Polybench_Fdtd2d {
 		init_arrays(fict.data(), ex.data(), ey.data(), hz.data(), size);
 
 		auto SIZE = (size+1)*size;
-        FICT_usm = malloc_device<DATA_TYPE>(TMAX,args.device_queue);
+        FICT_usm = malloc_shared<DATA_TYPE>(TMAX,args.device_queue);
         args.device_queue.submit([&](cl::sycl::handler& h){
             auto in_d = FICT_usm;
             auto in_h = &fict[0];
@@ -84,7 +84,7 @@ class Polybench_Fdtd2d {
             });
         }).wait();
 
-		EX_usm = malloc_device<DATA_TYPE>(SIZE,args.device_queue);
+		EX_usm = malloc_shared<DATA_TYPE>(SIZE,args.device_queue);
         args.device_queue.submit([&](cl::sycl::handler& h){
             auto in_d = EX_usm;
             auto in_h = &ex[0];
@@ -93,7 +93,7 @@ class Polybench_Fdtd2d {
             });
         }).wait();
 
-		EY_usm = malloc_device<DATA_TYPE>(SIZE,args.device_queue);
+		EY_usm = malloc_shared<DATA_TYPE>(SIZE,args.device_queue);
         args.device_queue.submit([&](cl::sycl::handler& h){
             auto in_d = EY_usm;
             auto in_h = &ey[0];
@@ -102,14 +102,15 @@ class Polybench_Fdtd2d {
             });
         }).wait();
 
-		HZ_usm = malloc_device<DATA_TYPE>(size*size,args.device_queue);
+		HZ_usm = malloc_shared<DATA_TYPE>(size*size,args.device_queue);
+		size_t N = size*size;
         args.device_queue.submit([&](cl::sycl::handler& h){
             auto in_d = HZ_usm;
             auto in_h = &hz[0];
-            h.parallel_for(size*size,[=](cl::sycl::id<1> i){
+            h.parallel_for(N,[=](cl::sycl::id<1> i){
               in_d[i] = in_h[i];
             });
-        }).wait();
+        }).wait();s
 
 		// fict_buffer.initialize(args.device_queue, fict.data(), cl::sycl::range<1>(TMAX));
 		// ex_buffer.initialize(args.device_queue, ex.data(), cl::sycl::range<2>(size, size + 1));
@@ -124,72 +125,40 @@ class Polybench_Fdtd2d {
 		auto ex_usm = EX_usm;
 		auto ey_usm = EY_usm;
 		auto hz_usm = HZ_usm;
-		for(size_t t=0;t<TMAX;t++)
-		{
-			args.device_queue.submit([&](handler& cgh) {
+
+		for(size_t t = 0; t < TMAX; t++) {
+			events.push_back(args.device_queue.submit([&](handler& cgh) {
+
 				cgh.parallel_for<Fdtd2d1>(range<2>(size, size), [=,N_=size](item<2> item) {
-							const auto i = item[0];
-							const auto j = item[1];
-							if(i == 0) {
-								ey_usm[i*N_+j] = fict_usm[t];
-							} else {
-								ey_usm[i*N_+j] = ey_usm[i*N_+j] - 0.5 * (hz_usm[i*N_+j] - hz_usm[(i - 1)*N_+j]);
-							}
-				});
-			}).wait();
+					const auto i = item[0];
+					const auto j = item[1];
 
-			args.device_queue.submit([&](handler& cgh) {
+					if(i == 0) {
+						ey_usm[i*N_+j] = fict_usm[t];
+					} else {
+						ey_usm[i*N_+j] = ey_usm[i*N_+j] - 0.5 * (hz_usm[i*N_+j] - hz_usm[(i - 1)*N_+j]);
+					}
+				});
+			}));
+
+			events.push_back(args.device_queue.submit([&](handler& cgh) {
 				cgh.parallel_for<Fdtd2d2>(range<2>(size, size), [=, NX_ = size, NY_ = size](item<2> item) {
-							const auto i = item[0];
-							const auto j = item[1];
+					const auto i = item[0];
+					const auto j = item[1];
 
-							if(j > 0) ex_usm[i*NX_+j] = ex_usm[i*NX_+j] - 0.5 * (hz_usm[i*NX_+j] - hz_usm[i+(j - 1)*NX_]);
+					if(j > 0) ex_usm[i*NX_+j] = ex_usm[i*NX_+j] - 0.5 * (hz_usm[i*NX_+j] - hz_usm[i+(j - 1)*NX_]);
 				});
-			}).wait();
+			}));
 
-			args.device_queue.submit([&](handler& cgh) {
+			events.push_back(args.device_queue.submit([&](handler& cgh) {
 				cgh.parallel_for<Fdtd2d3>(range<2>(size,size), [=,N_=size](item<2> item) {
 					const auto i = item[0];
 					const auto j = item[1];
 
 					hz_usm[i*N_+j] = hz_usm[i*N_+j] - 0.7 * (ex_usm[i+(j + 1)*N_] - ex_usm[i*N_+j] + ey_usm[(i + 1)*N_+j] - ey_usm[i*N_+j]);
 				});
-			}).wait();
+			}));
 		}
-			
-		// for(size_t t = 0; t < TMAX; t++) {
-		// 	events.push_back(args.device_queue.submit([&](handler& cgh) {
-
-		// 		cgh.parallel_for<Fdtd2d1>(range<2>(size, size), [=,N_=size](item<2> item) {
-		// 			const auto i = item[0];
-		// 			const auto j = item[1];
-
-		// 			if(i == 0) {
-		// 				ey_usm[i*N_+j] = fict_usm[t];
-		// 			} else {
-		// 				ey_usm[i*N_+j] = ey_usm[i*N_+j] - 0.5 * (hz_usm[i*N_+j] - hz_usm[(i - 1)*N_+j]);
-		// 			}
-		// 		});
-		// 	}));
-
-		// 	events.push_back(args.device_queue.submit([&](handler& cgh) {
-		// 		cgh.parallel_for<Fdtd2d2>(range<2>(size, size), [=, NX_ = size, NY_ = size](item<2> item) {
-		// 			const auto i = item[0];
-		// 			const auto j = item[1];
-
-		// 			if(j > 0) ex_usm[i*NX_+j] = ex_usm[i*NX_+j] - 0.5 * (hz_usm[i*NX_+j] - hz_usm[i+(j - 1)*NX_]);
-		// 		});
-		// 	}));
-
-		// 	events.push_back(args.device_queue.submit([&](handler& cgh) {
-		// 		cgh.parallel_for<Fdtd2d3>(range<2>(size,size), [=,N_=size](item<2> item) {
-		// 			const auto i = item[0];
-		// 			const auto j = item[1];
-
-		// 			hz_usm[i*N_+j] = hz_usm[i*N_+j] - 0.7 * (ex_usm[i+(j + 1)*N_] - ex_usm[i*N_+j] + ey_usm[(i + 1)*N_+j] - ey_usm[i*N_+j]);
-		// 		});
-		// 	}));
-		// }
 	}
 
 	bool verify(VerificationSetting&) {

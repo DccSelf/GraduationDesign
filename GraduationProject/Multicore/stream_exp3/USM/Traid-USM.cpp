@@ -113,6 +113,7 @@ public:
 int main(int argc, char** argv) {
   BenchmarkApp app(argc, argv);
 
-  app.run<MicroBenchTraid<float, 1>>();
+  //app.run<MicroBenchTraid<float, 1>>();
+  app.run<MicroBenchTraid<double, 1>>();
   return 0;
 }

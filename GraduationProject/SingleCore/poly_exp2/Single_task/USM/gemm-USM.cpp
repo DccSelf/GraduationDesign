@@ -83,19 +83,41 @@ class Polybench_Gemm {
         B_usm = malloc_device<DATA_TYPE>(size*size,args.device_queue);
         C_usm = malloc_device<DATA_TYPE>(size*size,args.device_queue);
         //copy host_data:input to device
+		
+		//初始化对计算密集型任务的性能提升几乎没有帮助，对带宽有很大帮助。
+		int USM = size * size;
+        args.device_queue.submit([&](cl::sycl::handler& h){
+			auto in_d = A_usm;
+            auto in_h = &A[0];
+            h.single_task([=,N=USM](){
+				for(int i=0;i<N;i++)
+				{
+					in_d[i] = in_h[i];
+				}
+            });;
+        }).wait();
 
         args.device_queue.submit([&](cl::sycl::handler& h){
-            h.memcpy(A_usm, &A[0], size*size*sizeof(DATA_TYPE));
-        });
-        args.device_queue.wait_and_throw();
+            auto in_d = B_usm;
+            auto in_h = &B[0];
+            h.single_task([=,N=USM](){
+              for(int i=0;i<N;i++)
+				{
+					in_d[i] = in_h[i];
+				}
+            });;
+        }).wait();
+
         args.device_queue.submit([&](cl::sycl::handler& h){
-            h.memcpy(B_usm, &B[0], size*size*sizeof(DATA_TYPE));
-        });
-        args.device_queue.wait_and_throw();
-        args.device_queue.submit([&](cl::sycl::handler& h){
-            h.memcpy(C_usm, &C[0], size*size*sizeof(DATA_TYPE));
-        });
-        args.device_queue.wait_and_throw();
+            auto in_d = C_usm;
+            auto in_h = &C[0];
+            h.single_task([=,N=USM](){
+              for(int i=0;i<N;i++)
+				{
+					in_d[i] = in_h[i];
+				}
+            });;
+        }).wait();
 
 
 		// A_buffer.initialize(args.device_queue, A.data(), cl::sycl::range<2>(size, size));

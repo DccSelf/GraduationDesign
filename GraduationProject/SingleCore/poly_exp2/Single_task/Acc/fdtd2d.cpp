@@ -83,7 +83,7 @@ class Polybench_Fdtd2d {
 	void run(std::vector<cl::sycl::event>& events) {
 		using namespace cl::sycl;
 
-		for(size_t t = 0; t < TMAX; t++) {
+		
 			// events.push_back(args.device_queue.submit([&](handler& cgh) {
 			// 	auto fict = fict_buffer.get_access<access::mode::read>(cgh);
 			// 	auto ey = ey_buffer.get_access<access::mode::read_write>(cgh);
@@ -134,33 +134,34 @@ class Polybench_Fdtd2d {
 				auto ex = ex_buffer.get_access<access::mode::read_write>(cgh);
 
 				
-				cgh.single_task<Fdtd2d1>([=,NX=size,NY=size](){
+				cgh.single_task<Fdtd2d1>([=,NX=size,NY=size,N=TMAX](){
+					for(size_t t = 0; t < N; t++) {
 
-					for(size_t i = 0; i < NX; i++) {
+						for(size_t i = 0; i < NX; i++) {
 
-						for(size_t j = 0; j < NY; j++) {
-							if(i==0)
-								ey[{i,j}] = fict[t];
-							else
-								ey[{i,j}] = ey[{i,j}] - 0.5 * (hz[{i,j}] - hz[{i-1,j}]);
+							for(size_t j = 0; j < NY; j++) {
+								if(i==0)
+									ey[{i,j}] = fict[t];
+								else
+									ey[{i,j}] = ey[{i,j}] - 0.5 * (hz[{i,j}] - hz[{i-1,j}]);
+							}
+
+							for(size_t j = 1; j < NY; j++) {
+								ex[{i ,j}] = ex[{i,j}] - 0.5 * (hz[{i,j}] - hz[{i,j-1}]);
+							}
 						}
 
-						for(size_t j = 1; j < NY; j++) {
-							ex[{i ,j}] = ex[{i,j}] - 0.5 * (hz[{i,j}] - hz[{i,j-1}]);
+						for(size_t i = 0; i < NX; i++) {
+							for(size_t j = 0; j < NY; j++) {
+								hz[{i,j}] = hz[{i,j}] - 0.7 * (ex[{i,j+1}] - ex[{i,j}] + ey[{i+1,j}] - ey[{i,j}]);
+							}
 						}
 					}
-
-					for(size_t i = 0; i < NX; i++) {
-						for(size_t j = 0; j < NY; j++) {
-							hz[{i,j}] = hz[{i,j}] - 0.7 * (ex[{i,j+1}] - ex[{i,j}] + ey[{i+1,j}] - ey[{i,j}]);
-						}
-					}
-
 				});
 
 
 			}));	
-		}
+		
 	}
 
 	bool verify(VerificationSetting&) {

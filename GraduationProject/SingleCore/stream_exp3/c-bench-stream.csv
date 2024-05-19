@@ -1,16 +1,16 @@
-﻿# Benchmark name,problem_size,Best_Rate_GB/s,Avg_time,Min_time,Max_time
-Copy,10000000,8.1480,0.157715,0.143822,0.219648
-# Benchmark name,problem_size,Best_Rate_GB/s,Avg_time,Min_time,Max_time
-Scale,10000000,8.1383,0.229845,0.144005,0.830487
-# Benchmark name,problem_size,Best_Rate_GB/s,Avg_time,Min_time,Max_time
-Add,10000000,8.4573,0.251366,0.092376,1.503079
-# Benchmark name,problem_size,Best_Rate_GB/s,Avg_time,Min_time,Max_time
-Traid,10000000,8.9391,0.139553,0.087397,0.323260
-# Benchmark name,problem_size,Best_Rate_GB/s,Avg_time,Min_time,Max_time
-Copy_fopenmp,100000000,74.8606,0.011476,0.010436,0.013505
-# Benchmark name,problem_size,Best_Rate_GB/s,Avg_time,Min_time,Max_time
-Scale_fopenmp,100000000,78.8714,0.016686,0.014858,0.023405
-# Benchmark name,problem_size,Best_Rate_GB/s,Avg_time,Min_time,Max_time
-Add_fopenmp,100000000,79.6790,0.010832,0.009805,0.015505
-# Benchmark name,problem_size,Best_Rate_GB/s,Avg_time,Min_time,Max_time
-Traid_fopenmp,100000000,79.9961,0.016192,0.014649,0.018548
+﻿# Benchmark name,problem_size,Best_Rate_GiB/s,Avg_time,Min_time,Max_time
+Copy,10000000,8.5392,0.008747,0.008717,0.008793
+# Benchmark name,problem_size,Best_Rate_GiB/s,Avg_time,Min_time,Max_time
+Scale,10000000,8.5483,0.008725,0.008682,0.008772
+# Benchmark name,problem_size,Best_Rate_GiB/s,Avg_time,Min_time,Max_time
+Add,10000000,8.0903,0.013865,0.013815,0.013939
+# Benchmark name,problem_size,Best_Rate_GiB/s,Avg_time,Min_time,Max_time
+Traid,10000000,8.1155,0.013825,0.013760,0.013964
+# Benchmark name,problem_size,Best_Rate_GiB/s,Avg_time,Min_time,Max_time
+Copy_fopenmp,100000000,82.1806,0.009182,0.009066,0.009292
+# Benchmark name,problem_size,Best_Rate_GiB/s,Avg_time,Min_time,Max_time
+Scale_fopenmp,100000000,87.8920,0.008662,0.008477,0.008887
+# Benchmark name,problem_size,Best_Rate_GiB/s,Avg_time,Min_time,Max_time
+Add_fopenmp,100000000,90.5447,0.012458,0.012343,0.012579
+# Benchmark name,problem_size,Best_Rate_GiB/s,Avg_time,Min_time,Max_time
+Traid_fopenmp,100000000,90.9188,0.012425,0.012292,0.012549

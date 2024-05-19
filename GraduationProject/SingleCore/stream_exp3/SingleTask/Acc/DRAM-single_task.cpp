@@ -60,44 +60,15 @@ public:
   void setup() {
     input_buf.initialize(args.device_queue, input.data(), buffer_size);
     output_buf.initialize(args.device_queue, buffer_size);
-
-
-
-
   }
 
   static ThroughputMetric getThroughputMetric(const BenchmarkArgs& args) {
-    const double copiedGiB =
-        getBufferSize<DataT, Dims>(args.problem_size).size() * sizeof(DataT) / 1024.0 / 1024.0 / 1024.0;
+    const double copiedGiB = getBufferSize<DataT, Dims>(args.problem_size).size() * sizeof(DataT) / 1024.0 / 1024.0 / 1024.0;
     // Multiply by two as we are both reading and writing one element in each thread.
     return {copiedGiB * 2.0, "GiB"};
   }
 
   void run(std::vector<s::event>& events) {
-
-    // int len = args.problem_size * args.problem_size * args.problem_size / sizeof(DataT) ;
-    // DataT *usm_size_in = malloc_shared<DataT>(len,args.device_queue);
-    // DataT *usm_size_out = malloc_shared<DataT>(len,args.device_queue);
-    // for(int i=0;i<len;i++)
-    // {
-    //   usm_size_in[i] = 33.f;
-    // }
-
-    // auto start1 = std::chrono::system_clock::now();
-    
-    // events.push_back(args.device_queue.single_task<MicroBenchDRAMKernel1<DataT,Dims>>([=](){
-    //   for(size_t i = 0;i<len;i++)
-    //   {
-    //     usm_size_out[i] = usm_size_in[i];
-    //   }
-    // }));
-
-    // auto end1 = std::chrono::system_clock::now();
-    // std::chrono::duration<double> elps1 = end1 - start1; 
-    // std::cout<<"USM run time: "<< elps1.count() <<"\n";
-    // free(usm_size_in,args.device_queue);
-    // free(usm_size_out,args.device_queue);
-
 
     //auto start2 = std::chrono::system_clock::now();
     events.push_back(args.device_queue.submit([&](cl::sycl::handler& cgh) {
@@ -105,26 +76,14 @@ public:
       auto out = output_buf.template get_access<s::access::mode::discard_write>(cgh);
       cgh.single_task<MicroBenchDRAMKernel2<DataT, Dims>>([=, global_size = buffer_size]() {
         for(size_t i = 0; i < global_size[0]; ++i) {
-          for(size_t j = 0; j < (Dims < 2 ? 1 : global_size[1]); ++j) {
-            for(size_t k = 0; k < (Dims < 3 ? 1 : global_size[2]); ++k) {
-              if constexpr(Dims == 1) {
-                out[i] = in[i];
-              }
-              if constexpr(Dims == 2) {
-                out[{i, j}] = in[{i, j}];
-              }
-              if constexpr(Dims == 3) {
-                out[{i, j, k}] = in[{i, j, k}];
-              }
+            if constexpr(Dims == 1) {
+              out[i] = in[i];
             }
-          }
         }
       });
     }));
     
-    //auto end2 = std::chrono::system_clock::now();
-    //std::chrono::duration<double> elps2 = end2 - start2; 
-    //std::cout<<"Accessor run time: "<< elps2.count() <<"\n";
+
 
 
   }
