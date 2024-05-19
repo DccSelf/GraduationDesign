@@ -12,7 +12,7 @@
 #### SYCL性能评估和优化的数据和代码在GraduationDesign目录中
 ###### GraduationDesign/Multicore 多核实验部分
 
-GraduationDesign/Multicore/dag_exp1 SYCL实现的调度开销和所使用后端的开销
+GraduationDesign/Multicore/dag_exp1 SYCL实现的调度开销和后端的开销
 GraduationDesign/Multicore/poly_exp2 SYCL吞吐量
 GraduationDesign/Multicore/stream_exp3 SYCL带宽
 
