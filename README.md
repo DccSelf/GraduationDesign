@@ -74,7 +74,7 @@ export POCL_AFFINITY=1  //线程亲和性
 export POCL_MAX_PTHREAD_COUNT=1/8/16/32/64 //最大线程数
 
 //启动64个线程执行
-yhrun -N 1 -n 1 -c 64 -p thcp1 ./gemm --size=1024 --num-runs=3
+yhrun -N 1 -n 1 -c 64 -p thcp1 ./gemm --size=1024 --num-runs=10
 
 
 
