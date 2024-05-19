@@ -27,7 +27,7 @@ GraduationDesign/singlecore/poly_exp2 SYCL吞吐量
 GraduationDesign/singlecore/stream_exp3 SYCL带宽
 
 // GraduationDesign/singlecore/barrier NDRange使用显式barrier执行情况
-// SYCL单核实现时主机设备不支持显示barrier, 
+// SYCL单核实现时主机设备不支持显示barrier
 // 该实验用于证明并行循环分裂+并行循环交换可克服显示barrier
 
 编译方法：clang++ -fsycl -O3 sycl-bench/include sycl-bench/polybench/common -DSYCL_BENCH_ENABLE_QUEUE_PROFILING gemm.cpp -o gemm
